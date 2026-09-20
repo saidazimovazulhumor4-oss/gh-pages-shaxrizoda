@@ -4,89 +4,98 @@
     <meta charset="UTF-8">
     <title>amaliy ish</title>
     <link rel="stylesheet" href="style.css"/>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #f9f9f9; margin: 0; padding: 20px; }
-        .container { max-width: 900px; margin: 0 auto; }
-        .upload-section { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-        .video-card { background: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .video-card h3 { margin: 10px 0 0 0; font-size: 16px; }
-        input, button { padding: 10px; margin: 5px 0; width: 100%; box-sizing: border-box; }
-        button { background-color: #ff0000; color: white; border: none; font-weight: bold; cursor: pointer; }
-    </style>
+    
 </head>
 <body>
- <div class="container">
-    <h1>YouTube Klon Video Platformasi</h1>
+ <header class="header">
+        <div class="container navbar">
+            <div class="logo">
+                <h1>EVOS<span>.</span></h1>
+            </div>
+            <nav class="nav-links">
+                <a href="#" class="active">Menyu</a>
+                <a href="#">Aksiyalar</a>
+                <a href="#">Filiallar</a>
+                <a href="#">Biz haqimizda</a>
+            </nav>
+            <div class="cart-btn">
+                <a href="#" class="btn-primary">Savatcha (0)</a>
+            </div>
+        </div>
+    </header>
+
     
+    <section class="hero">
+        <div class="container hero-content">
+            <h2>Toshkentdagi Eng Mazali Lavashlar!</h2>
+            <p>Iliq, qarsillaydigan va har doim yangi masalliqlardan tayyorlangan taomlar faqat siz uchun.</p>
+            <a href="#menu" class="btn-secondary">Menyuni ko'rish</a>
+        </div>
+    </section>
 
-    <div class="upload-section">
-        <h3>Yangi Video Yuklash</h3>
-        <input type="text" id="videoTitle" placeholder="Video sarlavhasi">
-        <input type="file" id="videoFile" accept="video/*">
-        <button onclick="uploadVideo()">Yuklash</button>
-    </div>
+  
+    <main class="container" id="menu">
+        <h3 class="section-title">Ommabop taomlar</h3>
+         <div class="menu-grid">
+           
+            <div class="menu-card">
+                <div class="card-badge">Xit</div>
+                <div class="card-img" style="background-image: url('https://unsplash.com');"></div>
+                <div class="card-info">
+                    <h4>Mol go'shtidan Lavash</h4>
+                    <p class="description">Go'sht, chipslar, pomidor, bodring va maxsus sous.</p>
+                    <div class="card-footer">
+                        <span class="price">32 000 so'm</span>
+                        <button class="add-to-cart">+</button>
+                    </div>
+                </div>
+            </div>
 
-   
-    <h2>Barcha Videolar</h2>
-    <div class="video-grid" id="videoGrid"></div>
-</div>
-<script src="https://zencdn.net"></script>
+           
+            <div class="menu-card">
+                <div class="card-img" style="background-image: url('https://unsplash.com');"></div>
+                <div class="card-info">
+                    <h4>Shaurma Standart</h4>
+                    <p class="description">Tovuq go'shti, salat, sous, va yangi pishgan non.</p>
+                    <div class="card-footer">
+                        <span class="price">28 000 so'm</span>
+                        <button class="add-to-cart">+</button>
+                    </div>
+                </div>
+            </div>
+             <div class="menu-card">
+                <div class="card-img" style="background-image: url('https://unsplash.com');"></div>
+                <div class="card-info">
+                    <h4>Gamburger</h4>
+                    <p class="description">Juicy kotlet, pishloq, tuzlangan bodring, piyoz.</p>
+                    <div class="card-footer">
+                        <span class="price">26 000 so'm</span>
+                        <button class="add-to-cart">+</button>
+                    </div>
+                </div>
+            </div>
 
-<script>
-    const API_URL = 'http://localhost:5000';
-
-    // Sayt ochilganda videolarni yuklash
-    document.addEventListener("DOMContentLoaded", loadVideos);
-
-    // Videolarni serverdan olib kelish va ko'rsatish
-    async function loadVideos() {
-        const response = await fetch(`${API_URL}/videos`);
-        const videos = await response.json();
-        const grid = document.getElementById('videoGrid');
-        grid.innerHTML = '';
-
-        videos.forEach(video => {
-            const card = document.createElement('div');
-            card.className = 'video-card';
-            card.innerHTML = `
-                <video class="video-js vjs-default-skin vjs-16-9" controls data-setup="{}">
-                    <source src="${video.url}" type="video/mp4">
-                </video>
-                <h3>${video.title}</h3>
-            `;
-            grid.appendChild(card);
-        });
-         // Yangi qo'shilgan pleyerlarni faollashtirish
-        setTimeout(() => {
-            document.querySelectorAll('.video-js').forEach(el => videojs(el));
-        }, 500);
-    }
-
-    // Videoni serverga jo'natish
-    async function uploadVideo() {
-        const title = document.getElementById('videoTitle').value;
-        const fileInput = document.getElementById('videoFile');
-        
-        if(!fileInput.files[0] || !title) {
-            alert('Iltimos, sarlavha yozing va video tanlang!');
-            return;
-        }
-
-        const formData = new FormData();
-        formData.append('title', title);
-        formData.append('video', fileInput.files[0]);
-
-        const response = await fetch(`${API_URL}/upload`, {
-            method: 'POST',
-            body: formData
-        });
-
-        if(response.ok) {
-            alert('Video yuklandi!');
-            loadVideos(); // Ro'yxatni yangilash
-        } else { alert('Xatolik yuz berdi.');
-        }
-    }
+           
+            <div class="menu-card">
+                <div class="card-img" style="background-image: url('https://unsplash.com');"></div>
+                <div class="card-info">
+                    <h4>Kartoshka Fri</h4>
+                    <p class="description">Oltin rang qarsildoq kartoshka va ketchup.</p>
+                    <div class="card-footer">
+                        <span class="price">16 000 so'm</span>
+                        <button class="add-to-cart">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+     <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 EVOS O'zbekiston. Barcha huquqlar himoyalangan.</p>
+            <div class="socials">
+                <a href="#">Telegram</a> | <a href="#">Instagram</a> | <a href="#">Facebook</a>
+            </div>
+        </div>
+    </footer>
     </body>
 </html>
