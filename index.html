@@ -2,100 +2,94 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>amaliy ish</title>
-    <link rel="stylesheet" href="style.css"/>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>КиноМир — Твой гид в мире кино</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
- <header class="header">
-        <div class="container navbar">
-            <div class="logo">
-                <h1>EVOS<span>.</span></h1>
-            </div>
-            <nav class="nav-links">
-                <a href="#" class="active">Menyu</a>
-                <a href="#">Aksiyalar</a>
-                <a href="#">Filiallar</a>
-                <a href="#">Biz haqimizda</a>
-            </nav>
-            <div class="cart-btn">
-                <a href="#" class="btn-primary">Savatcha (0)</a>
-            </div>
+
+   
+    <header class="navbar">
+        <div class="logo">🎬 Кино<span>Мир</span></div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Главная</a></li>
+                <li><a href="#">Фильмы</a></li>
+                <li><a href="#">Сериалы</a></li>
+                <li><a href="#">Избранное</a></li>
+            </ul>
+        </nav>
+        <div class="search-box">
+            <input type="text" placeholder="Поиск фильмов...">
         </div>
     </header>
 
-    
+  
     <section class="hero">
-        <div class="container hero-content">
-            <h2>Toshkentdagi Eng Mazali Lavashlar!</h2>
-            <p>Iliq, qarsillaydigan va har doim yangi masalliqlardan tayyorlangan taomlar faqat siz uchun.</p>
-            <a href="#menu" class="btn-secondary">Menyuni ko'rish</a>
+        <div class="hero-content">
+            <span class="badge">🔥 Хит недели</span>
+            <h1>Интерстеллар</h1>
+            <p class="movie-info">2014 • Фантастика, Драма • 2ч 49мин</p>
+            <p class="description">Наше время на Земле подошло к концу. Команда исследователей отправляется в самое важное путешествие в истории человечества: сквозь галактику, чтобы узнать, есть ли у человечества будущее среди звезд.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary">Смотреть трейлер</a>
+                <a href="#" class="btn btn-secondary">Подробнее</a>
+            </div>
         </div>
     </section>
 
-  
-    <main class="container" id="menu">
-        <h3 class="section-title">Ommabop taomlar</h3>
-         <div class="menu-grid">
+   
+    <main class="container">
+        <h2 class="section-title">Популярно сейчас</h2>
+        <div class="movies-grid">
+            
            
-            <div class="menu-card">
-                <div class="card-badge">Xit</div>
-                <div class="card-img" style="background-image: url('https://unsplash.com');"></div>
-                <div class="card-info">
-                    <h4>Mol go'shtidan Lavash</h4>
-                    <p class="description">Go'sht, chipslar, pomidor, bodring va maxsus sous.</p>
-                    <div class="card-footer">
-                        <span class="price">32 000 so'm</span>
-                        <button class="add-to-cart">+</button>
-                    </div>
+            <div class="movie-card">
+                <div class="movie-poster">⏳</div>
+                <div class="rating">8.6</div>
+                <div class="movie-details">
+                    <h3>Начало</h3>
+                    <p>Фантастика, Боевик</p>
+                </div>
+            </div>
+
+            
+            <div class="movie-card">
+                <div class="movie-poster">🌌</div>
+                <div class="rating">8.8</div>
+                <div class="movie-details">
+                    <h3>Тёмный рыцарь</h3>
+                    <p>Боевик, Триллер</p>
                 </div>
             </div>
 
            
-            <div class="menu-card">
-                <div class="card-img" style="background-image: url('https://unsplash.com');"></div>
-                <div class="card-info">
-                    <h4>Shaurma Standart</h4>
-                    <p class="description">Tovuq go'shti, salat, sous, va yangi pishgan non.</p>
-                    <div class="card-footer">
-                        <span class="price">28 000 so'm</span>
-                        <button class="add-to-cart">+</button>
-                    </div>
-                </div>
-            </div>
-             <div class="menu-card">
-                <div class="card-img" style="background-image: url('https://unsplash.com');"></div>
-                <div class="card-info">
-                    <h4>Gamburger</h4>
-                    <p class="description">Juicy kotlet, pishloq, tuzlangan bodring, piyoz.</p>
-                    <div class="card-footer">
-                        <span class="price">26 000 so'm</span>
-                        <button class="add-to-cart">+</button>
-                    </div>
+            <div class="movie-card">
+                <div class="movie-poster">🤡</div>
+                <div class="rating">8.0</div>
+                <div class="movie-details">
+                    <h3>Джокер</h3>
+                    <p>Триллер, Драма</p>
                 </div>
             </div>
 
            
-            <div class="menu-card">
-                <div class="card-img" style="background-image: url('https://unsplash.com');"></div>
-                <div class="card-info">
-                    <h4>Kartoshka Fri</h4>
-                    <p class="description">Oltin rang qarsildoq kartoshka va ketchup.</p>
-                    <div class="card-footer">
-                        <span class="price">16 000 so'm</span>
-                        <button class="add-to-cart">+</button>
-                    </div>
+            <div class="movie-card">
+                <div class="movie-poster">🦁</div>
+                <div class="rating">8.2</div>
+                <div class="movie-details">
+                    <h3>Король Лев</h3>
+                    <p>Мультфильм, Драма</p>
                 </div>
             </div>
+
         </div>
     </main>
-     <footer class="footer">
-        <div class="container footer-content">
-            <p>&copy; 2026 EVOS O'zbekiston. Barcha huquqlar himoyalangan.</p>
-            <div class="socials">
-                <a href="#">Telegram</a> | <a href="#">Instagram</a> | <a href="#">Facebook</a>
-            </div>
-        </div>
+
+   
+    <footer>
+        <p>&copy; 2026 КиноМир. Создано с любовью к кино 🍿</p>
     </footer>
-    </body>
+
+</body>
 </html>
